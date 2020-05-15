@@ -1,0 +1,40 @@
+### gandrade - cs160a
+### Spring2020 - May 3
+### Lab 6
+
+Part 1:
+1. 121 (grep -ci "california" licenses)
+
+2. - (sort licenses)
+
+3. sort -t " " -k1.2 licenses
+
+4. - (sort -t " " -k2 -k1.2 licenses)
+
+5. 2 duplicate license/state combos. (sort -t " " -k2 -k1 licenses | uniq -cd)
+
+6. 8 states (sort -k2,2 -u licenses | wc -l)
+
+7. 4 duplicates (sort -t " " -k1,1 licenses | cut -d " " -f1 | uniq -cd)
+
+8. - (grep -i "nevada" licenses | sort -r -k1.5 | cut -f1 > Nevada)
+
+9. 	2JUN210	California
+	2STI107	California
+	2MAT210	California
+	2MAT210	California
+ 	(grep -i "california" licenses | grep "^2" | grep "10")
+
+Part 2.
+1. - sort -t ":" -k3,3n groups | column -s: -t
+
+2. 	sort -t: -k3,3n groups | cut -d ":" -f3 | column -s: -t > gid
+	sort -t: -k3,3n groups | cut -d ":" -f1 | column -s: -t > gname
+	paste gid gname > grp
+
+3. sort -t: -k3,3n groups | grep "3012" | cut -d: -f4 | tr "," " "
+   -alternative-
+   cut -d ":" -f3,4 groups | grep "3012"| tr "," " "	
+
+4. 306
+   (sort -t: -k3,3n groups | cut -d: -f3 | head -n 1)
